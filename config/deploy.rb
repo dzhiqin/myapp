@@ -1,7 +1,5 @@
-require 'bundler/capistrano'
-
 # Change these
-server '193.112.14.150', port: 22, roles: [:web, :app, :db], primary: true
+server '49.235.172.41', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:dzhiqin/myapp.git'
 set :application,     'myapp'
