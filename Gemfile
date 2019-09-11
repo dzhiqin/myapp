@@ -38,6 +38,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'letter_opener',group: :development
+gem 'devise-i18n'
+gem 'rails-i18n'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
