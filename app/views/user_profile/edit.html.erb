@@ -1,0 +1,35 @@
+<h2>Edit User profile</h2>
+<%=form_for @profile,:url=>user_profile_path(@user) do |f| %>
+  <div class="form-group">
+    <%=f.label :name %>
+    <%=f.text_field :name,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%=f.label :birthday%>
+    <%=f.date_field :birthday,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%=f.label :address%>
+    <%=f.text_field :address,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%=f.label :education%>
+    <%=f.text_field :education,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%=f.label :bref_introduction%>
+    <%=f.text_area :bref_introduction,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%=f.label :occupation%>
+    <%=f.text_area :occupation,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%=f.label :remark%>
+    <%=f.text_area :remark,:class=>"form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit",:class=>"btn btn-primary"%>
+  </div>
+
+<% end %>

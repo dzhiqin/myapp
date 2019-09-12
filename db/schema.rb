@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_022136) do
+ActiveRecord::Schema.define(version: 2019_09_11_111526) do
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id", comment: "user_id"
+    t.string "name", comment: "名称"
+    t.date "birthday", comment: "生日"
+    t.string "address", comment: "地址"
+    t.string "education", comment: "学历"
+    t.string "occupation", comment: "职业"
+    t.text "bref_introduction", comment: "简介"
+    t.text "remark", comment: "备注"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
