@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_073940) do
+ActiveRecord::Schema.define(version: 2019_09_20_033559) do
+
+  create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id", comment: "用户id"
+    t.text "content", comment: "内容"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title", comment: "标题"
+  end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id", comment: "user_id"
@@ -35,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_073940) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin", default: false, comment: "管理员"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

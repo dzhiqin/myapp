@@ -1,0 +1,5 @@
+= simple_form_for blog do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.input :title, as: :string, required: true
+  = f.input :content, as: :text, required: true
+  = f.submit '确定发布', class: "btn btn-primary"

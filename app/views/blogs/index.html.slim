@@ -1,0 +1,23 @@
+.blog-index-page
+  - if @blogs.present?
+    table.table
+      thead.thead-dark
+        tr
+          th 文章
+          th 时间
+          th 创建人
+          th 操作
+      tbody
+        - @blogs.each do |blog|
+          tr
+            td = blog.title
+            td = blog.created_at.strftime('%F %T')
+            td = blog.user.profile.name
+            td
+              = link_to '编辑', edit_blog_path(blog), class: "btn btn-xs btn-info"
+              = link_to '删除', blog_path(blog), method: :delete, class: "btn btn-xs btn-warning"
+
+  - else
+    | 暂无文章
+  .blog-actions
+    = link_to '发布文章', new_blog_path, class: "btn btn-primary"

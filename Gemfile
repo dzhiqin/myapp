@@ -44,6 +44,7 @@ gem 'rails-i18n'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'carrierwave'
 gem 'carrierwave-qiniu', '~> 1.1.7'
+gem 'slim-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
