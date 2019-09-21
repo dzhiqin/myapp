@@ -6,7 +6,8 @@
           .panel-heading
             .panel-title
               a data-toggle="collapse" href="#collapse-#{blog.id}" data-parent="#accordion"
-                = blog.title
+                = blog.title + " "
+                = blog.created_at.strftime('%F %T')
             .panel-heading-actions
               = link_to '查看', blog_path(blog)
           .panel-collapse.collapse.in id="collapse-#{blog.id}"
