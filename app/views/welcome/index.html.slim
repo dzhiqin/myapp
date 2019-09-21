@@ -11,7 +11,7 @@
               = link_to '查看', blog_path(blog)
           .panel-collapse.collapse.in id="collapse-#{blog.id}"
             .panel-body
-              = kramdown(blog.content).html_safe
+              = markdown(blog.content)
 
   - else
     | 暂无文章
