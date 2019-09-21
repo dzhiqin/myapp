@@ -2,4 +2,4 @@
   .section.blog-title
     = @blog.title
   .section.blog-content
-    = kramdown(@blog.content).html_safe
+    = markdown(@blog.content)
