@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DlThink</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag image_path("favicon.ico") %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "common/navbar"%>
+        <%= render "common/flashes" %>
+        <%=yield%>
+        <%=render "common/footer"%>
+      </div>
+
+    </div>
+  </body>
+</html>
+
+<!-- 设置alert消息自动隐藏 -->
+<script>
+    setTimeout("$('.alert-container').fadeOut('slow')", 3000)
+</script>
