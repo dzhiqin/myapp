@@ -1,12 +1,14 @@
 .navbar {
   margin-bottom: 0 !important;
-  position: fixed !important;
+  // position: fixed !important;
   width: 100%;
   border: none !important;
   z-index: 999;
 }
 .navbar-default {
+  // 取消透明色
   background-color: inherit !important;
+  background: rgb(55,56,76) !important;
 }
 
 body {
@@ -14,4 +16,13 @@ body {
   height: 100vh;
   // background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);
   // background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+}
+.footer-container {
+  width: 100% !important;
+  background: rgb(55,56,76) !important;
+  height: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,0 +1,17 @@
+
+<div class="blog-index-page">
+  <% if @blogs.present? %>
+    <% @blogs.each do |blog|%>
+      <%= link_to blog_path(blog) do %>
+        <div class="panel panel-success animate__animated animate__fadeInBottomRight">
+          <div class="panel-heading">
+            <%= blog.title %>
+          </div>
+          <div class="panel-body">
+            发布时间<%= blog.created_at.strftime('%F %T') %>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>

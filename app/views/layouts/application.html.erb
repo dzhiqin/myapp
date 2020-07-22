@@ -7,6 +7,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag image_path("favicon.ico") %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
   </head>
 
   <body>
@@ -16,7 +20,21 @@
         <%= render "common/flashes" %>
         <div class="container">
           <div class="row">
-            <%=yield%>
+            <div class="col-md-2">
+              <div class="main-left">
+                <%= link_to "返回列表", blogs_path, :class=>"btn btn-lg btn-primary" %>
+                <% if current_user.is_admin %>
+                  <%= link_to "写文章", new_blog_path, :class=>"btn btn-lg btn-primary" %>
+                <%end%>
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <%=yield%>
+            </div>
+            <div class="col-md-2">
+
+            </div>
           </div>
         </div>
         <%=render "common/footer"%>
