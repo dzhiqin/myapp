@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_033559) do
+ActiveRecord::Schema.define(version: 2020_07_22_025231) do
+
+  create_table "blog_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "blog_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id", comment: "用户id"
@@ -18,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_09_20_033559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title", comment: "标题"
+    t.boolean "is_publish", default: true, comment: "是否上架"
+    t.datetime "publish_at", comment: "发布时间"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -33,6 +42,12 @@ ActiveRecord::Schema.define(version: 2019_09_20_033559) do
     t.datetime "updated_at", null: false
     t.string "avatar", comment: "头像"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|

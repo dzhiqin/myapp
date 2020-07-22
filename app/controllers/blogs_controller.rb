@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   layout 'application'
   def index
-    @blogs = Blog.all
+    @blogs = Blog.where(is_publish: true)
   end
 
   def new
