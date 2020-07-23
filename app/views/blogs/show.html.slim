@@ -1,6 +1,12 @@
 .blog-show-page
   .section.blog-title
     = @blog.title
+  - if @blog.tags.present?
+    .section.blog-tag
+      - @blog.tags.each do |tag|
+        span.label.label-success
+          = tag.name
+
   .section.blog-content
     = markdown(@blog.content)
 - if current_user.is_admin

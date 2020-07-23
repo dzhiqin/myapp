@@ -8,7 +8,18 @@
             <%= blog.title %>
           </div>
           <div class="panel-body">
-            发布时间<%= blog.created_at.strftime('%F %T') %>
+            <div class="panel-body-content">
+              <div class="panel-body-content-left">
+                <% if blog.tags.present? %>
+                  <% blog.tags.each do |tag| %>
+                    <span class="label label-success"><%= tag.name %></span>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="panel-body-content-right">
+                发布时间<%= blog.created_at.strftime('%F %T') %>
+              </div>
+            </div>
           </div>
         </div>
       <%end%>

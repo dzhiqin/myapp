@@ -22,6 +22,7 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @tags = Tag.all
     @blog = Blog.find_by(id: params[:id])
   end
 
@@ -38,6 +39,19 @@ class BlogsController < ApplicationController
     @blog = Blog.find_by(id: params[:id])
     @blog.destroy
     redirect_to blogs_path, notice: "已删除"
+  end
+
+  def add_tag
+    # redirect_to blogs_path, notice: "已删除"
+    blog = Blog.find_by(id: params[:id])
+    tag_id = params[:format]
+    existed_tags = blog.tags.ids
+    if existed_tags.include?(tag_id.to_i)
+      flash.now[:notice]="已添加"
+    else
+      BlogTag.create(blog_id: params[:id], tag_id: params[:format])
+      redirect_to blog_path(blog)
+    end
   end
 
   private

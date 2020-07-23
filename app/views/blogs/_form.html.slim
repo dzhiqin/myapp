@@ -1,5 +1,9 @@
 .blog-form
   = simple_form_for blog do |f|
+    - if @tags.present?
+      - @tags.each do |tag|
+        span.label.blog-form-label class="#{ blog.tags.ids.include?(tag.id.to_i) ? "label-success" : 'label-primary'}"
+          = link_to tag.name, add_tag_blog_path(blog,tag.id), method: :post
     = f.hidden_field :user_id, value: current_user.id
     = f.input :title, as: :string,label: '标题', required: true
     = f.input :content, as: :text, label: '内容', required: true, input_html: { class: "blog-form-content" }

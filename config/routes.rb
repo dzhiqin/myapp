@@ -55,5 +55,10 @@ Rails.application.routes.draw do
     resource :profile,:controller => "user_profile"
   end
 
-  resources :blogs
+  resources :blogs do
+    member do
+      post :add_tag
+      post :delete_tag
+    end
+  end
 end
