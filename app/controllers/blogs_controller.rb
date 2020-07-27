@@ -2,6 +2,10 @@ class BlogsController < ApplicationController
   layout 'application'
   def index
     @blogs = Blog.where(is_publish: true)
+    tag_id = params[:tag_id]
+    if tag_id.present?
+      @blogs = @blogs.joins(:blog_tags).where('blog_tags.tag_id = ?', tag_id.to_i)
+    end
   end
 
   def new

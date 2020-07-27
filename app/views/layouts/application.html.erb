@@ -18,23 +18,33 @@
       <div class="row">
         <%= render "common/navbar"%>
         <%= render "common/flashes" %>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2">
+        <div class="container" style="min-height: 800px;">
+          <div class="row" >
+            <div class="col-md-3">
               <div class="main-left">
-                <%= link_to "返回列表", blogs_path, :class=>"btn btn-lg btn-primary" %>
-                <% if current_user.is_admin %>
-                  <%= link_to "写文章", new_blog_path, :class=>"btn btn-lg btn-primary" %>
-                <%end%>
+                <div class="main-left-actions">
+                  <%= link_to "返回列表", blogs_path, :class=>"btn btn-md btn-primary" %>
+                  <% if current_user.is_admin %>
+                    <%= link_to "写文章", new_blog_path, :class=>"btn btn-md btn-primary" %>
+                  <%end%>
+                </div>
+
+                <p class="main-left-title">标签</p>
+                <div class="main-left-tabs">
+                  <%= link_to '全部', blogs_path, :class=>"label label-success"%>
+                  <% Tag.all.each do |tag| %>
+                    <%= link_to tag.name, blogs_path(tag_id: tag.id), :class=>"label label-success"%>
+                  <%end%>
+                </div>
               </div>
 
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
               <%=yield%>
             </div>
-            <div class="col-md-2">
+            <!-- <div class="col-md-2">
 
-            </div>
+            </div> -->
           </div>
         </div>
         <%=render "common/footer"%>
