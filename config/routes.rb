@@ -61,4 +61,6 @@ Rails.application.routes.draw do
       post :delete_tag
     end
   end
+
+  resources :tags
 end

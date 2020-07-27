@@ -1,0 +1,7 @@
+<div class="new-blog-page">
+  <%= simple_form_for @tag do |f| %>
+    <%= f.input :name, as: :string, label: '标签名', require: true %>
+
+    <%= f.submit '确定', class: "btn btn-primary" %>
+  <%end%>
+</div>
