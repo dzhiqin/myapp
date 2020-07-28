@@ -24,10 +24,9 @@
               <div class="main-left">
                 <div class="main-left-actions">
                   <%= link_to "返回列表", blogs_path, :class=>"btn btn-md btn-primary" %>
-                  <% if current_user.is_admin %>
+                  <% if current_user && current_user.is_admin %>
                     <%= link_to "写文章", new_blog_path, :class=>"btn btn-md btn-primary" %>
                     <%= link_to "标签管理", tags_path, :class=>"btn btn-md btn-primary" %>
-
                   <%end%>
                 </div>
 

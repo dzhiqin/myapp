@@ -9,5 +9,5 @@
 
   .section.blog-content
     = markdown(@blog.content)
-- if current_user.is_admin
+- if current_user && current_user.is_admin
   = link_to '编辑',edit_blog_path(@blog), class: "btn btn-info"
